@@ -87,7 +87,7 @@ spec:
             code: 404
             type: application/json
             body: |
-              {\"msg\": \"Could not find the resource!\"}
+              {\"msg\": \"Could not find the resource 2!\"}
             headers:
               - name: x-debug-original-status
                 value: ${upstream_status}
