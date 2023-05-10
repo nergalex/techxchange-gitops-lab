@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: kind-crow
+spec:
+  project: default
+  source:
+    path: charts/prometheus
+    repoURL: https://github.com/nergalex/techxchange-gitops-lab.git
+    targetRevision: HEAD
+  destination:
+    namespace: kind-crow
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
